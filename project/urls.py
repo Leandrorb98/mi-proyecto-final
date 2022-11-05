@@ -27,8 +27,8 @@ urlpatterns = [
     path('blog/',blog_index),
     path('mi-familia/buscar',BuscarFamiliar.as_view()),
     path('mi-familia/alta', AltaFamiliar.as_view()),
-    path('panel-familia/', FamiliarList.as_view()),
-    path('panel-familia/crear', FamiliarCrear.as_view()),
-    path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view()),
-    path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view()),
+    path('panel-familia/', FamiliarList.as_view(), name = "familiar-list"),
+    path('panel-familia/crear', FamiliarCrear.as_view()), name = "familiar-crear",
+    path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view(), name = "familiar-borrar"),
+    path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view(), name = "familiar-actualizar"),
 ]
