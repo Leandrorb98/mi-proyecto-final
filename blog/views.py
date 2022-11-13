@@ -12,9 +12,10 @@ def index (request):
 
 class ListPost(ListView):
     model=Post
-
-class ListPost(ListView):
-    model=Post
+class SearchPostByName(ListView):
+    def get_queryset(self):
+        post_title=self.request.GET.get('post-title')
+        return Post.objects.filter(title_icontains=blog_title)
 class BlogLogin(LoginView):
     template_name= 'blog/blog_login.html'
     next_page = reverse_lazy("list=-post")

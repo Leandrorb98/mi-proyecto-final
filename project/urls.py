@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from ejemplo.views import (index, monstrar_familiares,index_dos, index_tres, BuscarFamiliar, AltaFamiliar)
 from blog.views import index as blog_index
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +31,6 @@ urlpatterns = [
     path('mi-familia/buscar',BuscarFamiliar.as_view()),
     path('mi-familia/alta', AltaFamiliar.as_view()),
     path('panel-familia/', include('panel_familia.urls')),
-    path('blog/', include('blogs.urls')),
-   
+    path('blog/', include('blog.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
